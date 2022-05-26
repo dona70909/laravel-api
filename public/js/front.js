@@ -1916,11 +1916,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'Post',
+  name: "Post",
   mounted: function mounted() {
     console.log('Component mounted.');
-  }
+  },
+  props: ["post"]
 });
 
 /***/ }),
@@ -1946,11 +1952,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Posts',
+  components: {
+    Post: _components_Post_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      posts: []
+    };
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
   },
-  components: {
-    Post: _components_Post_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  methods: {
+    getPosts: function getPosts() {
+      var _this = this;
+
+      axios.get("http://localhost:8000/api/posts").then(function (result) {
+        _this.posts = result.data;
+        console.warn(_this.posts);
+      })["catch"](function (error) {
+        console.warn(error);
+      });
+    }
+  },
+  created: function created() {
+    this.getPosts();
   }
 });
 
@@ -2466,20 +2492,27 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _vm._v("\n        this is a post\n    "),
+  return _c("div", { staticClass: "col-3" }, [
+    _c("div", { staticClass: "card" }, [
+      _c("img", {
+        staticClass: "card-img-top img-fluid py-2",
+        attrs: {
+          src: _vm.post.post_img,
+          alt: "This image should represent:post.post_title",
+        },
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c("h5", { staticClass: "card-title" }, [
+          _vm._v(_vm._s(_vm.post.post_title)),
+        ]),
+        _vm._v(" "),
+        _c("h6", [_vm._v(_vm._s(_vm.post.category))]),
       ]),
-    ])
-  },
-]
+    ]),
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -2501,8 +2534,15 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [_c("Post")], 1),
+  return _c("div", { staticClass: "container-fluid" }, [
+    _c(
+      "div",
+      { staticClass: "row d-flex justify-content-center" },
+      _vm._l(_vm.posts, function (post, index) {
+        return _c("Post", { key: index, attrs: { post: post } })
+      }),
+      1
+    ),
   ])
 }
 var staticRenderFns = []

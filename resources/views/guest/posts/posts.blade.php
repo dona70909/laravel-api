@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
-<div id="root">
-    posts from vue
-</div>
+@section('title','Guest All  posts')
+
+@section('header-content')
+    @include('partials.header.header_nav')
+@endsection
+
+@section('content')
+    <div id="root">
+        
+    </div>
+@endsection

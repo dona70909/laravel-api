@@ -1,7 +1,12 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            this is a post
+    <div class="col-3">
+        <div class="card">
+            
+            <img class="card-img-top img-fluid py-2" :src="post.post_img" alt="This image should represent:post.post_title">
+            <div class="card-body">
+                <h5 class="card-title">{{post.post_title}}</h5>
+                <h6>{{post.category}}</h6> 
+            </div>
         </div>
     </div>
 </template>
@@ -10,11 +15,13 @@
 
     export default {
 
-        name:'Post',
+        name:"Post",
 
         mounted() {
             console.log('Component mounted.')
-        }
+        },
+
+        props: ["post"],
     
     }
 </script>
