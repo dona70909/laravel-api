@@ -13,9 +13,18 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+
+
+
+/*  Route::group(['guest'],function () {
+    Route::get('/', 'Guest\HomeController@index');
+    Route::resource('posts','Guest\PostController');
+}); */
+
+
 
 Auth::routes();
 
@@ -24,8 +33,12 @@ Route::middleware('auth')
     ->namespace('Admin')
     ->prefix('admin')
     ->group( function() {
-        Route::get('/', 'HomeController@index')
-        ->name('home');
+        Route::get('/guest', 'HomeController@index')
+        ->name('home'); 
         Route::resource('posts','PostController');
         Route::resource('categories','CategoryController');
     });
+
+
+    Route::get('/', 'Guest\HomeController@index'); 
+    Route::get('posts','Guest\PostController@index');    

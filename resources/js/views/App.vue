@@ -1,16 +1,16 @@
 <template>
     <div class="container-fluid">
-        
+        <Posts/>
     </div>
 </template>
 
 <script>
 // import axios from 'axios';
-/* import PostList from '../components/PostList.vue'; */
+import Posts from '../components/Posts.vue'; 
 export default {
     name: "App",
     components: {
-        
+        Posts,
     }
 }
 </script>
