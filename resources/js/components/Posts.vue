@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid">
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-center gx-3 gy-3">
             <Post v-for="(post, index) in posts" :key="index" :post="post" />
         </div>
     </div>

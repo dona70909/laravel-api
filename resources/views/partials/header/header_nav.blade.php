@@ -3,9 +3,9 @@
         <nav class="bg-primary text-uppercase fw-bolder">
             <ul class="d-flex list-unstyled align-items-baseline py-2">
                 <li class="nav-item">
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand text-decoration-underline" href="{{ url('/') }}">
                         {{-- config name --}}
-                        {{ config('app.name', 'Boolblog') }} <em>(@yield('title'))</em>
+                        {{ config('app.name', 'Boolblog') }} <em> (@yield('title'))</em>
                     </a>
                 </li>
                 
