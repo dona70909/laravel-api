@@ -57,7 +57,7 @@
                     <div class="col-6">
                         <h2 class="text-uppercase">Welcome</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit tempore a sint saepe ipsa assumenda labore possimus, fugit, incidunt vero veniam minus aperiam commodi autem quis quibusdam maxime, iure culpa.</p>
-                        <a href="{{url('guest/posts')}}">posts</a>
+                        <a href="{{route('guests.posts')}}">posts</a>
                     </div>
                 </div>
             </section>

@@ -40,5 +40,6 @@ Route::middleware('auth')
     });
 
 
+    
     Route::get('/', 'Guest\HomeController@index'); 
-    Route::get('posts','Guest\PostController@index');    
+    Route::get('posts','Guest\PostController@index')->name('guests.posts');   
